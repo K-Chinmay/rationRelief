@@ -6,7 +6,6 @@ import styles from "./EventDetails.module.css";
 
 const Test = () => {
   const EventDetails = {
-    _id: { $oid: "64567949f458d0f3ec7a2054" },
     eventName: "Unity Initiative",
     eventDate: "09/05/2023",
     rationSchedule: [
@@ -21,8 +20,7 @@ const Test = () => {
         provider: "Deshpandes",
         mfgDate: "09/03/2023",
         expiryDate: "09/09/2023",
-        allocatedPerUser: { $numberInt: "10" },
-        _id: { $oid: "645897b6ebe9ea875c929ee4" },
+        allocatedPerUser: 10,
       },
       {
         item: "Rice",
@@ -30,7 +28,6 @@ const Test = () => {
         provider: "Motilals",
         expiryDate: "09/10/2023",
         allocatedPerUser: { $numberInt: "20" },
-        _id: { $oid: "645897b6ebe9ea875c929ee5" },
       },
       {
         item: "Sugar",
@@ -39,7 +36,6 @@ const Test = () => {
         mfgDate: "09/02/2023",
         expiryDate: "09/10/2023",
         allocatedPerUser: { $numberInt: "5" },
-        _id: { $oid: "645897b6ebe9ea875c929ee6" },
       },
     ],
     eventCity: "Nashik",
