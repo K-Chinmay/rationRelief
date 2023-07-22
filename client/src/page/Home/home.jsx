@@ -26,8 +26,8 @@ const Home = () => {
             <Link to={"/consumer/signin"} className={styles.info_signup}>
               Consumer
             </Link>
-            <Link to={"/organization/signin"} className={styles.info_signup}>
-              Organization
+            <Link to={"/consumer/events"} className={styles.info_signup}>
+              Events
             </Link>
           </div>
         </div>

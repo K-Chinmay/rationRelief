@@ -50,6 +50,9 @@ const eventSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  slots: {
+    type: [String],
+  },
   rationSchedule: [
     {
       startTime: {

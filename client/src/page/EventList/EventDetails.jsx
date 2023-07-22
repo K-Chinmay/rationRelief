@@ -20,7 +20,7 @@ const Test = () => {
         provider: "Deshpandes",
         mfgDate: "09/03/2023",
         expiryDate: "09/09/2023",
-        allocatedPerUser: 10,
+        allocatedPerUser: { $numberInt: "10" },
       },
       {
         item: "Rice",
@@ -160,7 +160,7 @@ const Test = () => {
           {/* ))} */}
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
