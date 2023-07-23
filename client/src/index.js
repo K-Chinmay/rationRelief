@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
+import { AuthContextProvider } from "./context/AuthContext.js";
 
 import thunk from "redux-thunk";
 // import Reducers from "./reducers";
@@ -17,7 +18,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <Provider store={store}>
   <React.StrictMode>
-    <App />
+    <AuthContextProvider>
+      <App />
+    </AuthContextProvider>
   </React.StrictMode>
   // </Provider>
 );

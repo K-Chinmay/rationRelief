@@ -1,18 +1,27 @@
 import Event from "../models/EventSchema.js";
 import Slot from "../models/slotSchema.js";
+import User from "../models/userSchema.js";
 
 import { createError } from "../utils/error.js";
 
 export const createSlot = async (req, res, next) => {
   const eventId = req.params.eventid;
   const newSlot = new Slot(req.body);
-
   try {
     const savedSlot = await newSlot.save();
     try {
       await Event.findByIdAndUpdate(eventId, {
         $push: { slots: savedSlot._id },
       });
+      await User.updateOne(
+        { _id: req.body.userId },
+        {
+          $set: {
+            isSlotBooked: true,
+            slotId: savedSlot._id,
+          },
+        }
+      );
     } catch (err) {
       next(err);
     }

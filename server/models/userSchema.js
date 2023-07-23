@@ -11,6 +11,7 @@ const userSchema = mongoose.Schema({
   phone: { type: Number, default: 0 },
   isAdmin: { type: Boolean, default: false },
   isSlotBooked: { type: Boolean, default: false },
+  slotId: { type: String, default: "" },
 });
 
 export default mongoose.model("User", userSchema);

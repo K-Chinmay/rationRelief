@@ -1,23 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { useNavigate } from "react-router-dom";
-// import Footer from "../.././components/Footer/footer";
-// import Navbar from "../.././components/Navbar/navbar";
-// import Dummy from "../Dummy/dummy";
 import styles from "./signin.module.css";
-// import axios from "axios";
+import axios from "axios";
 import { Link } from "react-router-dom";
-// import BASE_URL from "../.././pages/Utilis/helper";
+import { AuthContext } from "../../../context/AuthContext.js";
 import { useCookies } from "react-cookie";
 
 const SignUp = () => {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [formLoading, setFormLoading] = useState(false);
-  const [cookie, setCookie] = useCookies(["access_token"]);
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [formLoading, setFormLoading] = useState(false);
+  // const [cookie, setCookie] = useCookies(["access_token"]);
 
   // const submissionHandler = async () => {
   //   console.log("Entered");
@@ -60,6 +56,33 @@ const SignUp = () => {
 
   //   setFormLoading(false);
   // };
+  const navigate = useNavigate();
+  const [credentials, setCredentials] = useState({
+    username: null,
+    password: null,
+  });
+
+  const { loading, error, dispatch } = useContext(AuthContext);
+
+  const handleChange = (e) => {
+    setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+    dispatch({ type: "LOGIN_START" });
+    try {
+      const res = await axios.post(
+        "http://localhost:8800/server/auth/login",
+        credentials
+      );
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+      navigate("/");
+    } catch (err) {
+      dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
+    }
+  };
+
   return (
     <div>
       <div className={styles.UserRegistration}>
@@ -68,23 +91,23 @@ const SignUp = () => {
 
           <form className={styles.form}>
             <div className={styles.inputField}>
-              <label>Email</label>
+              <label>Username</label>
               <input
-                type="email"
-                placeholder="Email"
+                type="username"
+                placeholder="Username"
+                id="username"
                 className={styles.input}
-                value={email}
-                // onChange={(e) => setEmail(e.target.value)}
+                onChange={handleChange}
               />
             </div>
             <div className={styles.inputField}>
               <label>Password</label>
               <input
-                type="Password"
+                type="password"
                 placeholder="Password"
+                id="password"
                 className={styles.input}
-                value={password}
-                // onChange={(e) => setPassword(e.target.value)}
+                onChange={handleChange}
               />
             </div>
             <p>
@@ -100,13 +123,11 @@ const SignUp = () => {
                 type="submit"
                 value="Login"
                 className={styles.btn}
-                // onClick={submissionHandler}
-                // disabled={formLoading}
-                // onClick={notify}
+                onClick={handleClick}
               />
             </div>
+            {error && <span>{error.message}</span>}
           </form>
-          <ToastContainer />
         </div>
       </div>
     </div>

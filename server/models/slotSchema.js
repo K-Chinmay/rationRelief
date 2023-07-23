@@ -2,12 +2,13 @@ import mongoose from "mongoose";
 
 const slotSchema = mongoose.Schema({
   title: { type: String, required: true },
-  description: { type: String, required: true },
+  userId: { type: String, required: true },
+  userPosted: { type: String, required: true },
   startTime: {
     type: String,
     required: true,
   },
-  endsTime: {
+  endTime: {
     type: String,
     required: true,
   },

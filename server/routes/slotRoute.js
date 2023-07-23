@@ -13,7 +13,7 @@ import { verifyAdmin } from "../utils/verifyToken.js";
 const router = express.Router();
 
 // CREATE
-router.post("/:eventid", verifyAdmin, createSlot);
+router.post("/:eventid", createSlot);
 
 //UPDATE
 router.put("/:id", verifyAdmin, updateSlot);

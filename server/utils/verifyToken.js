@@ -10,13 +10,14 @@ export const verifyToken = (req, res, next) => {
   jwt.verify(token, process.env.JWT, (err, user) => {
     if (err) return next(createError(403, "Token is not valid!"));
     req.user = user;
+    console.log(req.user);
     next();
   });
 };
 
 export const verifyUser = (req, res, next) => {
   verifyToken(req, res, () => {
-    if (req.user.id === req.params.id || req.user.isAdmin) {
+    if (req.user._id === req.params.id || req.user.isAdmin) {
       next();
     } else {
       return next(createError(403, "You are not authorized!"));

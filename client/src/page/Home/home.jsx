@@ -23,12 +23,12 @@ const Home = () => {
             and inventory in real-time
           </p>
           <div>
-            <Link to={"/consumer/signin"} className={styles.info_signup}>
+            {/* <Link to={"/consumer/signin"} className={styles.info_signup}>
               Consumer
-            </Link>
-            <Link to={"/consumer/events"} className={styles.info_signup}>
+            </Link> */}
+            {/* <Link to={"/consumer/events"} className={styles.info_signup}>
               Events
-            </Link>
+            </Link> */}
           </div>
         </div>
         <div className={styles.image}>
