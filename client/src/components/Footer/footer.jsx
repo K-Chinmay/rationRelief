@@ -66,7 +66,7 @@ const Footer = () => {
                   Consumer Signup
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/organization/signin" aria-label="Go to Applications">
                   Organization Signin
                 </Link>
@@ -75,7 +75,7 @@ const Footer = () => {
                 <Link to="/organization/signup" aria-label="Go to Staff Login">
                   Organization Signup
                 </Link>
-              </li>
+              </li> */}
               {/* <li>
                 <Link
                   to="/user-registration"

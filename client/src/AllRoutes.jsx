@@ -6,7 +6,8 @@ import ConsumerSignin from "../src/page/Consumer/Signin/signin";
 import ConsumerSignup from "../src/page/Consumer/Signup/signup";
 import EventList from "./page/EventList/EventsList";
 import EventDetails from "./page/EventList/EventDetails";
-// import Test from "./page/Test/Test";
+import UserProfile from "./page/Userprofile/userprofile";
+import Test from "./page/Test/Test";
 
 const AllRoutes = () => {
   return (
@@ -17,6 +18,7 @@ const AllRoutes = () => {
       <Route path="/consumer/signup" element={<ConsumerSignup />} />
       <Route path="/consumer/events/" element={<EventList />} />
       <Route path="/consumer/eventDetails/:id" element={<EventDetails />} />
+      <Route path="/consumer/profile" element={<UserProfile />} />
     </Routes>
   );
 };
