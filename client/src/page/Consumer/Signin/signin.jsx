@@ -73,7 +73,7 @@ const SignUp = () => {
     dispatch({ type: "LOGIN_START" });
     try {
       const res = await axios.post(
-        "http://localhost:8800/server/auth/login",
+        "https://reationrelief-server.onrender.com/server/auth/login",
         credentials
       );
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });

@@ -14,7 +14,7 @@ const EventList = () => {
   const [date, setDate] = useState(location.state.date);
 
   const { data, loading, error, reFetch } = useFetch(
-    `http://localhost:8800/server/events/?eventCity=${
+    `https://reationrelief-server.onrender.com/server/events/?eventCity=${
       city || "city"
     }&eventDate=${date || "dd/mm/yyyy"}`
   );

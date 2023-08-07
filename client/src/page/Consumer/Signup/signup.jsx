@@ -68,7 +68,8 @@ const SignUp = () => {
     };
 
     try {
-      const url = "http://localhost:8800/server/auth/register";
+      const url =
+        "https://reationrelief-server.onrender.com/server/auth/register";
       const response = await axios.post(url, formData);
       navigate("/");
       return;
