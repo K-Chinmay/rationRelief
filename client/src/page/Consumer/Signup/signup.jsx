@@ -70,6 +70,7 @@ const SignUp = () => {
     try {
       const url =
         "https://reationrelief-server.onrender.com/server/auth/register";
+      // "http://localhost:8800/server/auth/register";
       const response = await axios.post(url, formData);
       navigate("/");
       return;
@@ -167,7 +168,7 @@ const SignUp = () => {
             </div>
             <div className={styles.inputField}>
               <input
-                type="submit"
+                type="button"
                 value="Register"
                 className={styles.btn}
                 onClick={submissionHandler}

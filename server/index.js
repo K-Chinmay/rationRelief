@@ -8,12 +8,19 @@ import slotRoute from "./routes/slotRoute.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 
-dotenv.config();
 const app = express();
+app.use(express.json({ limit: "30mb", extended: true }));
+app.use(express.urlencoded({ limit: "30mb", extended: true }));
+
+dotenv.config({ path: "./config.env" });
 
 const connect = async () => {
   try {
-    await mongoose.connect(process.env.MONGO);
+    await mongoose.connect(process.env.MONGO, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      // useMongoClient: true,
+    });
     console.log("connected to Mongodb");
   } catch (error) {
     throw error;
@@ -46,7 +53,9 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(8800, () => {
+const PORT = process.env.PORT || 8800;
+
+app.listen(PORT, () => {
   connect();
-  console.log("listening at 8800");
+  console.log(`listening at ${PORT}`);
 });
