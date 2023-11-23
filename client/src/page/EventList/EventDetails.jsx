@@ -15,7 +15,7 @@ const Test = () => {
   const navigate = useNavigate();
   const id = location.pathname.split("/")[3];
   const { data, loading, error } = useFetch(
-    `https://reationrelief-server.onrender.com/server/events/${id}`,
+    `https://reationrelief-server.onrender.com/server/events/${id}`
     // `http://localhost:8800/server/events/${id}`
   );
   const { user } = useContext(AuthContext);
@@ -24,10 +24,13 @@ const Test = () => {
 
   const handleBookSlot = async (e) => {
     e.preventDefault();
+
     try {
+      console.log(data);
       if (user) {
         if (!user.isSlotBooked) {
           const slotData = {
+            eventid: data._id,
             title: data.eventName,
             userId: user._id,
             userPosted: user.username,

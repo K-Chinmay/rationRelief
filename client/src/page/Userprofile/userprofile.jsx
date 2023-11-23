@@ -7,6 +7,8 @@ import { useContext } from "react";
 const UserProfile = () => {
   const { user } = useContext(AuthContext);
 
+  const handleDeleteSlot = () => {};
+
   return (
     <div className="profile_container">
       <div className="profile_contents">
@@ -26,6 +28,11 @@ const UserProfile = () => {
               <div>
                 <p>1 event booked</p>
                 <p>Slot Id : {user.slotId}</p>
+              </div>
+              <div>
+                <button className="deleteButton" onClick={handleDeleteSlot}>
+                  Delete Slot
+                </button>
               </div>
             </>
           ) : (

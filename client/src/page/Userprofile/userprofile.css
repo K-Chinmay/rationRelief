@@ -33,3 +33,15 @@
   color: rgba(128, 131, 131, 0.692);
   margin-bottom: 20px;
 }
+
+.deleteButton {
+  align-self: center;
+  padding: 9px 22px;
+  background-color: #a31460;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  color: white;
+  margin-top: 35px;
+}
