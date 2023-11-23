@@ -15,7 +15,8 @@ const Test = () => {
   const navigate = useNavigate();
   const id = location.pathname.split("/")[3];
   const { data, loading, error } = useFetch(
-    `https://reationrelief-server.onrender.com/server/events/${id}`
+    `https://reationrelief-server.onrender.com/server/events/${id}`,
+    // `http://localhost:8800/server/events/${id}`
   );
   const { user } = useContext(AuthContext);
   const [startTime, setStartTime] = useState("");
@@ -36,6 +37,7 @@ const Test = () => {
           };
           const res = await axios.post(
             `https://reationrelief-server.onrender.com/server/slot/${data._id}`,
+            // `http://localhost:8800/server/slot/${data._id}`,
             slotData
           );
           console.log(res);

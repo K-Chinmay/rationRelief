@@ -17,6 +17,9 @@ const EventList = () => {
     `https://reationrelief-server.onrender.com/server/events/?eventCity=${
       city || "city"
     }&eventDate=${date || "dd/mm/yyyy"}`
+    // `http://localhost:8800/server/events/?eventCity=${
+    //   city || "city"
+    // }&eventDate=${date || "dd/mm/yyyy"}`
   );
   console.log(data);
   const handleCardClick = (id) => {
